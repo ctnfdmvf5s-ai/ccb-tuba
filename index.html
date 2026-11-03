@@ -7,80 +7,72 @@
 <meta name="theme-color" content="#090909">
 <title>CCB TUBA</title>
 <style>
-:root{--gold:#d6ad52;--bg:#090909;--panel:#171717;--muted:#aaa}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:white;font-family:Arial,sans-serif}
-header{padding:23px 16px;text-align:center;background:#111;border-bottom:1px solid #604b20}
-header h1{color:var(--gold);margin:0;font-size:27px;letter-spacing:3px}
-header p{color:#bbb;margin:7px 0 0;font-size:12px}
-nav{display:flex;overflow-x:auto;gap:8px;padding:12px;background:#101010;position:sticky;top:0;z-index:5}
-nav button{white-space:nowrap;background:#222;color:white;border:1px solid #444;border-radius:9px;padding:11px}
-nav button.active{background:var(--gold);color:#111;border-color:var(--gold)}
-main{padding:15px;max-width:750px;margin:auto}
+body{margin:0;background:#090909;color:white;font-family:Arial,sans-serif}
+header{text-align:center;padding:24px;background:#151515;border-bottom:2px solid #c9a348}
+header h1{color:#d8b45c;letter-spacing:3px;margin:0}
+header p{color:#aaa;font-size:13px}
+nav{display:flex;overflow-x:auto;gap:7px;padding:12px;background:#111;position:sticky;top:0}
+nav button{white-space:nowrap;background:#292929;color:white;border:1px solid #555;border-radius:9px;padding:12px}
+nav button.active{background:#d8b45c;color:#111}
+main{max-width:750px;margin:auto;padding:14px}
 section{display:none}
 section.active{display:block}
-.card{background:var(--panel);border:1px solid #343434;border-radius:15px;padding:17px;margin-bottom:15px}
-h2{color:var(--gold);font-size:20px;margin-top:0}
-h3{color:var(--gold)}
+.card{background:#181818;border:1px solid #383838;border-radius:14px;padding:17px;margin-bottom:15px}
+h2{color:#d8b45c;margin-top:0}
 p{line-height:1.5;color:#ddd}
-input,select,textarea{width:100%;padding:13px;background:#080808;color:white;border:1px solid #555;border-radius:9px;margin:7px 0 13px;font-size:16px}
-button.action{background:var(--gold);color:#111;border:0;border-radius:9px;padding:13px;font-weight:bold;margin:4px 3px 4px 0}
-button.secondary{background:#292929;color:white;border:1px solid #555;border-radius:9px;padding:12px;margin:4px 3px}
-.note-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
-.note-grid button{background:#252525;color:white;border:1px solid #666;border-radius:10px;padding:16px 3px;font-size:17px}
-.note-grid button:active{background:var(--gold);color:#111}
-.big{font-size:46px;color:var(--gold);text-align:center;padding:15px}
-small{color:var(--muted)}
+input,select,textarea{width:100%;padding:13px;background:#090909;color:white;border:1px solid #555;border-radius:9px;margin:7px 0 13px;font-size:16px}
+button.action{background:#d8b45c;color:#111;border:0;border-radius:9px;padding:13px;font-weight:bold;margin:4px}
+button.secondary{background:#292929;color:white;border:1px solid #555;border-radius:9px;padding:12px;margin:4px}
+.big{font-size:42px;color:#d8b45c;text-align:center;padding:15px}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.grid button{background:#292929;color:white;border:1px solid #777;border-radius:9px;padding:15px 3px;font-size:16px}
 .item{padding:12px;border-bottom:1px solid #444}
-footer{text-align:center;color:#777;padding:25px;font-size:12px}
+small{color:#aaa}
+footer{text-align:center;color:#777;padding:25px}
 </style>
 </head>
 <body>
 
 <header>
 <h1>🎺 CCB TUBA</h1>
-<p>Seu instrumento, seu hinário, seu estudo.</p>
+<p>Seu instrumento musical virtual</p>
 </header>
 
 <nav>
-<button class="active" onclick="show('inicio',this)">Início</button>
-<button onclick="show('hinos',this)">Hinos</button>
-<button onclick="show('tuba',this)">Tuba virtual</button>
-<button onclick="show('escalas',this)">Escalas</button>
-<button onclick="show('partituras',this)">Partituras</button>
-<button onclick="show('favoritos',this)">Favoritos</button>
-<button onclick="show('notas',this)">Anotações</button>
+<button class="active" onclick="abrir('inicio',this)">Início</button>
+<button onclick="abrir('hinos',this)">Hinos</button>
+<button onclick="abrir('tuba',this)">Tuba virtual</button>
+<button onclick="abrir('escalas',this)">Escalas</button>
+<button onclick="abrir('partituras',this)">Partituras</button>
+<button onclick="abrir('favoritos',this)">Favoritos</button>
+<button onclick="abrir('anotacoes',this)">Anotações</button>
 </nav>
 
 <main>
 
 <section id="inicio" class="active">
 <div class="card">
-<h2>Bem-vindo ao CCB TUBA</h2>
-<p>Um espaço para estudar, praticar e aprender música.</p>
+<h2>Bem-vindo ao CCB TUBA!</h2>
+<p>Estude música, pratique notas e organize seus hinos.</p>
 </div>
 <div class="card">
-<h2>🎺 Tuba virtual</h2>
-<p>Escolha uma nota e ouça o som da tuba.</p>
-<button class="action" onclick="go('tuba')">Abrir instrumento</button>
+<h2>🎹 Instrumento virtual</h2>
+<p>Escolha uma nota e ouça o som eletrônico.</p>
+<button class="action" onclick="ir('tuba')">Abrir tuba virtual</button>
 </div>
 <div class="card">
 <h2>🎼 Hinário</h2>
-<p>Pesquise e cadastre suas melodias.</p>
-<button class="action" onclick="go('hinos')">Abrir hinos</button>
-</div>
-<div class="card">
-<h2>📚 Estudos</h2>
-<p>Pratique escalas, visualize partituras e registre suas anotações.</p>
+<p>Cadastre melodias e reproduza suas sequências de notas.</p>
+<button class="action" onclick="ir('hinos')">Abrir hinos</button>
 </div>
 </section>
 
 <section id="tuba">
 <div class="card">
-<h2>🎺 Instrumento virtual</h2>
-<p>Escolha a nota e a oitava. Depois aperte em tocar.</p>
-
-<label>Nota musical</label>
+<h2>🎹 Tuba virtual</h2>
+<p>Escolha uma nota musical e toque.</p>
+<label>Nota</label>
 <select id="nota">
 <option value="C">Dó</option>
 <option value="C#">Dó sustenido / Ré bemol</option>
@@ -95,62 +87,46 @@ footer{text-align:center;color:#777;padding:25px;font-size:12px}
 <option value="A#">Lá sustenido / Si bemol</option>
 <option value="B">Si</option>
 </select>
-
 <label>Oitava</label>
 <select id="oitava">
-<option value="2">Grave - 2</option>
-<option value="3" selected>3</option>
-<option value="4">4</option>
-<option value="5">Aguda - 5</option>
+<option value="2">Grave</option>
+<option value="3" selected>Média</option>
+<option value="4">Aguda</option>
+<option value="5">Muito aguda</option>
 </select>
-
-<div class="big" id="notaAtual">Dó3</div>
-
+<div class="big" id="notaAtual">Dó 3</div>
 <button class="action" onclick="tocarSelecionada()">▶ TOCAR NOTA</button>
 <button class="secondary" onclick="pararSom()">■ PARAR</button>
-
-<p><small>O som sintetizado é uma aproximação. Para ouvir uma tuba real, envie uma gravação da nota escolhida abaixo.</small></p>
+<p><small>Som eletrônico simples, semelhante ao de um teclado musical.</small></p>
 </div>
-
 <div class="card">
-<h2>Gravações reais de tuba</h2>
-<p>Você pode enviar uma gravação de cada nota. O aplicativo utilizará essa gravação quando você tocar a nota correspondente.</p>
-<label>Gravação da nota selecionada</label>
-<input type="file" id="arquivoSom" accept="audio/*">
-<button class="action" onclick="salvarSom()">Salvar gravação</button>
-<div id="statusSom">Nenhuma gravação selecionada.</div>
-</div>
-
-<div class="card">
-<h2>Teclas musicais</h2>
-<div class="note-grid" id="teclas"></div>
+<h2>Teclado de notas</h2>
+<div class="grid" id="teclas"></div>
 </div>
 </section>
 
 <section id="hinos">
 <div class="card">
 <h2>🎼 Hinário 5</h2>
-<label>Pesquisar número do hino</label>
-<input id="pesquisa" type="number" placeholder="Exemplo: 1" oninput="listarHinos()">
+<label>Pesquisar hino</label>
+<input id="pesquisa" type="number" placeholder="Número do hino" oninput="listarHinos()">
 <div id="listaHinos"></div>
 </div>
-
 <div class="card">
-<h2>Cadastrar melodia</h2>
-<label>Número do hino</label>
-<input id="numeroHino" type="number" placeholder="Número do hino">
+<h2>Cadastrar hino</h2>
+<label>Número</label>
+<input id="numeroHino" type="number" placeholder="Ex.: 1">
 <label>Nome (opcional)</label>
 <input id="nomeHino" placeholder="Nome do hino">
 <label>Notas da melodia</label>
-<textarea id="melodia" rows="3" placeholder="Exemplo: C3 D3 E3 F3 G3"></textarea>
+<textarea id="melodia" rows="3" placeholder="Exemplo: C3 D3 E3 F3 G3 A3"></textarea>
 <label>Duração de cada nota (milissegundos)</label>
-<input id="duracao" type="number" value="700">
-<button class="action" onclick="salvarHino()">Salvar hino</button>
-<p><small>Use C, D, E, F, G, A, B para Dó, Ré, Mi, Fá, Sol, Lá e Si. Exemplo: C3 D3 E3. Para sustenido, use C#3.</small></p>
+<input id="duracao" type="number" value="600">
+<button class="action" onclick="salvarHino()">SALVAR HINO</button>
+<p><small>Use C para Dó, D para Ré, E para Mi, F para Fá, G para Sol, A para Lá e B para Si. Exemplo: C3 D3 E3 F3.</small></p>
 </div>
-
 <div class="card">
-<h2>Reproduzir melodia</h2>
+<h2>Reproduzir hino</h2>
 <input id="hinoTocar" type="number" placeholder="Número do hino">
 <button class="action" onclick="tocarHino()">▶ REPRODUZIR</button>
 <button class="secondary" onclick="pararSom()">■ PARAR</button>
@@ -160,14 +136,13 @@ footer{text-align:center;color:#777;padding:25px;font-size:12px}
 <section id="escalas">
 <div class="card">
 <h2>Escala cromática</h2>
-<p>Toque as notas em sequência para praticar.</p>
-<button class="action" onclick="tocarEscala()">▶ Tocar escala</button>
-<button class="secondary" onclick="pararSom()">■ Parar</button>
-<div class="note-grid" id="escala"></div>
+<p>Ouça as notas em sequência.</p>
+<button class="action" onclick="tocarEscala()">▶ TOCAR ESCALA</button>
+<button class="secondary" onclick="pararSom()">■ PARAR</button>
+<div class="grid" id="escala"></div>
 </div>
 <div class="card">
 <h2>Escalas maiores</h2>
-<label>Escolha a tonalidade</label>
 <select id="tonalidade">
 <option value="C">Dó maior</option>
 <option value="D">Ré maior</option>
@@ -177,33 +152,33 @@ footer{text-align:center;color:#777;padding:25px;font-size:12px}
 <option value="A">Lá maior</option>
 <option value="Bb">Si bemol maior</option>
 </select>
-<button class="action" onclick="tocarMaior()">▶ Tocar escala maior</button>
+<button class="action" onclick="tocarMaior()">▶ TOCAR ESCALA MAIOR</button>
 </div>
 </section>
 
 <section id="partituras">
 <div class="card">
 <h2>📄 Minhas partituras</h2>
-<p>Adicione PDFs ou imagens de partituras para visualizar no aparelho.</p>
+<p>Escolha um PDF ou uma imagem salva no iPhone.</p>
 <input type="file" id="arquivoPartitura" accept=".pdf,image/*">
-<button class="action" onclick="abrirPartitura()">Abrir partitura</button>
+<button class="action" onclick="abrirPartitura()">ABRIR PARTITURA</button>
 <div id="visualPartitura"></div>
 </div>
 </section>
 
 <section id="favoritos">
 <div class="card">
-<h2>⭐ Hinos favoritos</h2>
+<h2>⭐ Meus favoritos</h2>
 <div id="listaFavoritos"></div>
 </div>
 </section>
 
-<section id="notas">
+<section id="anotacoes">
 <div class="card">
 <h2>📝 Minhas anotações</h2>
-<textarea id="anotacao" rows="7" placeholder="Escreva suas observações de estudo..."></textarea>
-<button class="action" onclick="salvarAnotacao()">Salvar anotação</button>
-<div id="anotacoesSalvas"></div>
+<textarea id="anotacao" rows="5" placeholder="Escreva suas anotações..."></textarea>
+<button class="action" onclick="salvarAnotacao()">SALVAR</button>
+<div id="listaAnotacoes"></div>
 </div>
 </section>
 
@@ -211,185 +186,207 @@ footer{text-align:center;color:#777;padding:25px;font-size:12px}
 <footer>CCB TUBA • Aplicativo de estudos musicais</footer>
 
 <script>
-const $=id=>document.getElementById(id);
-let audioCtx=null;
-let fontes=[];
-let db=null;
-let cacheSons={};
-let hinos=JSON.parse(localStorage.getItem('ccb_hinos')||'[]');
-let favoritos=JSON.parse(localStorage.getItem('ccb_favoritos')||'[]');
+let audio=null;
+let osciladores=[];
+let pararSequencia=false;
 
-function show(id,btn){
+const $=id=>document.getElementById(id);
+
+function abrir(id,botao){
 document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
 $(id).classList.add('active');
 document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
-if(btn)btn.classList.add('active');
+if(botao)botao.classList.add('active');
 if(id==='hinos')listarHinos();
 if(id==='favoritos')listarFavoritos();
-if(id==='notas')listarAnotacoes();
+if(id==='anotacoes')listarAnotacoes();
 }
-function go(id){
-const b=[...document.querySelectorAll('nav button')].find(x=>x.getAttribute('onclick')?.includes("'"+id+"'"));
-show(id,b);
-}
-function contexto(){
-if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();
-if(audioCtx.state==='suspended')audioCtx.resume();
-return audioCtx;
-}
-function nomeNota(n){
-const nomes={C:'Dó', 'C#':'Dó sustenido',D:'Ré','D#':'Ré sustenido',E:'Mi',F:'Fá','F#':'Fá sustenido',G:'Sol','G#':'Sol sustenido',A:'Lá','A#':'Lá sustenido',B:'Si'};
-return nomes[n]||n;
-}
-function atualizarNota(){
-$('notaAtual').textContent=nomeNota($('nota').value)+$('oitava').value;
-}
-$('nota').onchange=atualizarNota;
-$('oitava').onchange=atualizarNota;
 
-function frequencia(n,oct){
-const semis={C:0,'C#':1,D:2,'D#':3,E:4,F:5,'F#':6,G:7,'G#':8,A:9,'A#':10,B:11};
-return 440*Math.pow(2,(12*(Number(oct)-4)+(semis[n]??0)-9)/12);
+function ir(id){
+let botao=[...document.querySelectorAll('nav button')].find(b=>b.getAttribute('onclick').includes("'"+id+"'"));
+abrir(id,botao);
 }
-function chaveAtual(){return $('nota').value+$('oitava').value;}
 
-function tocarSintetizado(n,oct,dur=1){
-const ctx=context(),f=frequencia(n,oct),now=ctx.currentTime;
-const gain=ctx.createGain();
-gain.gain.setValueAtTime(0,now);
-gain.gain.linearRampToValueAtTime(.24,now+.08);
-gain.gain.setTargetAtTime(.13,now+.18,.15);
-gain.gain.setTargetAtTime(.001,now+Math.max(.2,dur-.15),.12);
-gain.connect(ctx.destination);
-const oscs=[];
-[1,2,3,4].forEach((h,i)=>{
-const o=ctx.createOscillator(),g=ctx.createGain();
-o.type='sawtooth';o.frequency.value=f*h;
-g.gain.value=[.7,.19,.08,.025][i];
-o.connect(g);g.connect(gain);o.start(now);o.stop(now+dur+.4);
-oscs.push(o);
-});
-fontes.push(...oscs);
+function contextoAudio(){
+const AudioContexto=window.AudioContext||window.webkitAudioContext;
+if(!AudioContexto){
+alert('Seu navegador não suporta áudio.');
+return null;
 }
-async function tocarNota(n,oct,dur=1){
-const key=n+oct;
-const ctx=context();
-if(cacheSons[key]){
-const src=ctx.createBufferSource();
-src.buffer=cacheSons[key];
-const g=ctx.createGain();g.gain.value=.9;
-src.connect(g);g.connect(ctx.destination);
-src.start();
-fontes.push(src);
-return;
+if(!audio)audio=new AudioContexto();
+if(audio.state==='suspended')audio.resume();
+return audio;
 }
-if(db){
-try{
-const blob=await buscarSom(key);
-if(blob){
-const buffer=await ctx.decodeAudioData(await blob.arrayBuffer());
-cacheSons[key]=buffer;
-return tocarNota(n,oct,dur);
+
+const nomes={
+C:'Dó','C#':'Dó sustenido',D:'Ré','D#':'Ré sustenido',
+E:'Mi',F:'Fá','F#':'Fá sustenido',G:'Sol',
+'G#':'Sol sustenido',A:'Lá','A#':'Lá sustenido',B:'Si'
+};
+
+const semitons={
+C:0,'C#':1,D:2,'D#':3,E:4,F:5,
+'F#':6,G:7,'G#':8,A:9,'A#':10,B:11
+};
+
+function frequencia(n,oitava){
+return 440*Math.pow(2,(12*(oitava-4)+(semitons[n]??0)-9)/12);
 }
-}catch(e){}
+
+function tocarNota(n,oitava,duracao=0.8){
+const ctx=contextoAudio();
+if(!ctx)return;
+
+const os=ctx.createOscillator();
+const ganho=ctx.createGain();
+const agora=ctx.currentTime;
+
+os.type='triangle';
+os.frequency.setValueAtTime(frequencia(n,oitava),agora);
+
+ganho.gain.setValueAtTime(0.001,agora);
+ganho.gain.linearRampToValueAtTime(0.25,agora+0.04);
+ganho.gain.setTargetAtTime(0.001,agora+duracao,0.08);
+
+os.connect(ganho);
+ganho.connect(ctx.destination);
+
+os.start(agora);
+os.stop(agora+duracao+0.3);
+
+osciladores.push(os);
+os.onended=()=>{osciladores=osciladores.filter(x=>x!==os)};
 }
-tocarSintetizado(n,oct,dur);
-}
+
 function tocarSelecionada(){
-tocarNota($('nota').value,Number($('oitava').value),1.4);
+tocarNota($('nota').value,Number($('oitava').value),1.2);
 }
+
 function pararSom(){
-fontes.forEach(f=>{try{f.stop()}catch(e){}});
-fontes=[];
+pararSequencia=true;
+osciladores.forEach(o=>{try{o.stop()}catch(e){}});
+osciladores=[];
 }
+
+function atualizarNota(){
+$('notaAtual').textContent=nomes[$('nota').value]+' '+$('oitava').value;
+}
+$('nota').addEventListener('change',atualizarNota);
+$('oitava').addEventListener('change',atualizarNota);
+
 function criarTeclas(){
-const notas=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+const lista=Object.keys(nomes);
 $('teclas').innerHTML='';
 $('escala').innerHTML='';
-notas.forEach(n=>{
-const b=document.createElement('button');
-b.textContent=nomeNota(n);
-b.onclick=()=>tocarNota(n,Number($('oitava').value),1.2);
+lista.forEach(n=>{
+let b=document.createElement('button');
+b.textContent=nomes[n];
+b.onclick=()=>tocarNota(n,Number($('oitava').value),1);
 $('teclas').appendChild(b);
-const e=document.createElement('button');
-e.textContent=nomeNota(n);
-e.onclick=()=>tocarNota(n,3,1.2);
+
+let e=document.createElement('button');
+e.textContent=nomes[n];
+e.onclick=()=>tocarNota(n,3,1);
 $('escala').appendChild(e);
 });
 }
-function abrirDB(){
-return new Promise((resolve,reject)=>{
-const req=indexedDB.open('CCBTubaSons',1);
-req.onupgradeneeded=()=>req.result.createObjectStore('sons',{keyPath:'key'});
-req.onsuccess=()=>{db=req.result;resolve(db)};
-req.onerror=reject;
-});
-}
-function buscarSom(key){
-return new Promise((resolve,reject)=>{
-const r=db.transaction('sons').objectStore('sons').get(key);
-r.onsuccess=()=>resolve(r.result?.blob||null);
-r.onerror=reject;
-});
-}
-async function salvarSom(){
-const file=$('arquivoSom').files[0];
-if(!file){alert('Escolha uma gravação primeiro.');return}
-await abrirDB();
-const key=chaveAtual();
-await new Promise((resolve,reject)=>{
-const tx=db.transaction('sons','readwrite');
-tx.objectStore('sons').put({key,blob:file});
-tx.oncomplete=resolve;tx.onerror=reject;
-});
-delete cacheSons[key];
-$('statusSom').textContent='Gravação salva para '+nomeNota($('nota').value)+$('oitava').value+'.';
-alert('Gravação salva neste navegador!');
-}
+
+let hinos=JSON.parse(localStorage.getItem('ccb_hinos')||'[]');
+let favoritos=JSON.parse(localStorage.getItem('ccb_favoritos')||'[]');
+
 function salvarHino(){
-const numero=$('numeroHino').value;
+const numero=$('numeroHino').value.trim();
 const melodia=$('melodia').value.trim();
-if(!numero||!melodia){alert('Informe o número e as notas do hino.');return}
+if(!numero||!melodia){
+alert('Informe o número e as notas do hino.');
+return;
+}
 hinos=hinos.filter(h=>h.numero!==numero);
-hinos.push({numero,nome:$('nomeHino').value,melodia,duracao:Number($('duracao').value)||700});
+hinos.push({
+numero,
+nome:$('nomeHino').value,
+melodia,
+duracao:Number($('duracao').value)||600
+});
 localStorage.setItem('ccb_hinos',JSON.stringify(hinos));
 listarHinos();
-alert('Hino cadastrado!');
+alert('Hino salvo!');
 }
+
 function listarHinos(){
-const q=$('pesquisa').value;
-const lista=hinos.filter(h=>h.numero.includes(q));
-$('listaHinos').innerHTML=lista.map(h=>`<div class="item"><b>Hino ${h.numero}</b> ${h.nome||''}<br><button class="secondary" onclick="favoritar('${h.numero}')">☆ Favoritar</button><button class="secondary" onclick="selecionarHino('${h.numero}')">Selecionar</button></div>`).join('')||'<p>Nenhum hino cadastrado ainda.</p>';
+const busca=$('pesquisa').value;
+const encontrados=hinos.filter(h=>h.numero.includes(busca));
+$('listaHinos').innerHTML='';
+if(!encontrados.length){
+$('listaHinos').textContent='Nenhum hino cadastrado ainda.';
+return;
 }
-function selecionarHino(n){$('hinoTocar').value=n;go('hinos')}
-function favoritar(n){
-if(!favoritos.includes(n))favoritos.push(n);
+encontrados.forEach(h=>{
+const div=document.createElement('div');
+div.className='item';
+const nome=document.createElement('b');
+nome.textContent='Hino '+h.numero+' '+h.nome;
+const fav=document.createElement('button');
+fav.className='secondary';
+fav.textContent='☆ Favoritar';
+fav.onclick=()=>favoritar(h.numero);
+const abrirBtn=document.createElement('button');
+abrirBtn.className='secondary';
+abrirBtn.textContent='Selecionar';
+abrirBtn.onclick=()=>{$('hinoTocar').value=h.numero};
+div.append(nome,document.createElement('br'),fav,abrirBtn);
+$('listaHinos').appendChild(div);
+});
+}
+
+function favoritar(numero){
+if(!favoritos.includes(numero))favoritos.push(numero);
 localStorage.setItem('ccb_favoritos',JSON.stringify(favoritos));
-alert('Adicionado aos favoritos!');
+alert('Hino adicionado aos favoritos!');
 }
+
 function listarFavoritos(){
-$('listaFavoritos').innerHTML=favoritos.map(n=>`<div class="item">Hino ${n}<button class="secondary" onclick="selecionarHino('${n}')">Abrir</button></div>`).join('')||'<p>Nenhum favorito.</p>';
+$('listaFavoritos').innerHTML='';
+favoritos.forEach(n=>{
+const div=document.createElement('div');
+div.className='item';
+div.textContent='Hino '+n;
+$('listaFavoritos').appendChild(div);
+});
+if(!favoritos.length)$('listaFavoritos').textContent='Nenhum favorito ainda.';
 }
+
+function esperar(ms){
+return new Promise(resolve=>setTimeout(resolve,ms));
+}
+
 async function tocarSequencia(texto,duracao){
 pararSom();
-const tokens=texto.trim().split(/[\s,;]+/).filter(Boolean);
-for(const token of tokens){
-if(!token)continue;
-const m=token.match(/^(C#|D#|F#|G#|A#|C|D|E|F|G|A|B)([2-5])?$/i);
-if(!m){continue}
-const n=m[1].toUpperCase(),oct=Number(m[2]||3);
-await tocarNota(n,oct,duracao/1000);
-await new Promise(r=>setTimeout(r,duracao));
+pararSequencia=false;
+const notas=texto.trim().split(/[\s,;]+/);
+for(const item of notas){
+if(pararSequencia)break;
+const m=item.match(/^(C#|D#|F#|G#|A#|C|D|E|F|G|A|B)([2-5])?$/i);
+if(!m)continue;
+tocarNota(m[1].toUpperCase(),Number(m[2]||3),duracao/1000);
+await esperar(duracao);
 }
 }
+
 function tocarHino(){
-const h=hinos.find(x=>x.numero===$('hinoTocar').value);
-if(!h){alert('Hino não cadastrado. Cadastre a melodia primeiro.');return}
+const numero=$('hinoTocar').value;
+const h=hinos.find(x=>x.numero===numero);
+if(!h){
+alert('Esse hino ainda não foi cadastrado. Adicione as notas primeiro.');
+return;
+}
 tocarSequencia(h.melodia,h.duracao);
 }
+
 function tocarEscala(){
-tocarSequencia('C3 C#3 D3 D#3 E3 F3 F#3 G3 G#3 A3 A#3 B3 C4',500);
+tocarSequencia('C3 C#3 D3 D#3 E3 F3 F#3 G3 G#3 A3 A#3 B3 C4',450);
 }
+
 function tocarMaior(){
 const escalas={
 C:'C3 D3 E3 F3 G3 A3 B3 C4',
@@ -400,44 +397,64 @@ G:'G3 A3 B3 C4 D4 E4 F#4 G4',
 A:'A3 B3 C#4 D4 E4 F#4 G#4 A4',
 Bb:'A#3 C4 D4 D#4 F4 G4 A4 A#4'
 };
-tocarSequencia(escalas[$('tonalidade').value],600);
+tocarSequencia(escalas[$('tonalidade').value],550);
 }
+
 function abrirPartitura(){
 const f=$('arquivoPartitura').files[0];
-if(!f){alert('Escolha uma partitura.');return}
+if(!f){alert('Escolha um arquivo primeiro.');return}
 const url=URL.createObjectURL(f);
 $('visualPartitura').innerHTML='';
 if(f.type==='application/pdf'){
 const iframe=document.createElement('iframe');
-iframe.src=url;iframe.width='100%';iframe.height='500';iframe.style.border='0';
+iframe.src=url;
+iframe.width='100%';
+iframe.height='500';
+iframe.style.border='0';
 $('visualPartitura').appendChild(iframe);
 }else{
 const img=document.createElement('img');
-img.src=url;img.style.width='100%';img.style.marginTop='12px';
+img.src=url;
+img.style.width='100%';
 $('visualPartitura').appendChild(img);
 }
 }
+
 function salvarAnotacao(){
-const a=$('anotacao').value.trim();
-if(!a)return;
-let arr=JSON.parse(localStorage.getItem('ccb_anotacoes')||'[]');
-arr.unshift(a);
-localStorage.setItem('ccb_anotacoes',JSON.stringify(arr));
+const texto=$('anotacao').value.trim();
+if(!texto)return;
+let lista=JSON.parse(localStorage.getItem('ccb_anotacoes')||'[]');
+lista.unshift(texto);
+localStorage.setItem('ccb_anotacoes',JSON.stringify(lista));
 $('anotacao').value='';
 listarAnotacoes();
 }
+
 function listarAnotacoes(){
-const arr=JSON.parse(localStorage.getItem('ccb_anotacoes')||'[]');
-$('anotacoesSalvas').innerHTML=arr.map((a,i)=>`<div class="item">${a}<br><button class="secondary" onclick="excluirAnotacao(${i})">Excluir</button></div>`).join('');
+const lista=JSON.parse(localStorage.getItem('ccb_anotacoes')||'[]');
+$('listaAnotacoes').innerHTML='';
+lista.forEach((texto,i)=>{
+const div=document.createElement('div');
+div.className='item';
+const p=document.createElement('p');
+p.textContent=texto;
+const b=document.createElement('button');
+b.className='secondary';
+b.textContent='Excluir';
+b.onclick=()=>{
+let nova=JSON.parse(localStorage.getItem('ccb_anotacoes')||'[]');
+nova.splice(i,1);
+localStorage.setItem('ccb_anotacoes',JSON.stringify(nova));
+listarAnotacoes();
+};
+div.append(p,b);
+$('listaAnotacoes').appendChild(div);
+});
 }
-function excluirAnotacao(i){
-let arr=JSON.parse(localStorage.getItem('ccb_anotacoes')||'[]');
-arr.splice(i,1);localStorage.setItem('ccb_anotacoes',JSON.stringify(arr));listarAnotacoes();
-}
+
 criarTeclas();
 atualizarNota();
 listarHinos();
-abrirDB().catch(()=>{});
 </script>
 </body>
 </html>
