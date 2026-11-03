@@ -3,168 +3,174 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#10151d">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101010">
 <title>CCB TUBA</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#10151d;color:#f5f5f5;font-family:Arial,sans-serif}
-header{background:#171e28;padding:25px 20px;border-bottom:1px solid #343d49}
-header h1{color:#d9b46b;margin:0;font-size:28px}
-header p{color:#aab2bf;margin-bottom:0}
-main{padding:20px;max-width:650px;margin:auto}
-h2{color:#dfbd7d}
-nav{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:20px 0}
-button{background:#252f3d;color:white;border:1px solid #414d5c;padding:15px;border-radius:12px;font-size:15px;cursor:pointer}
-button:active{background:#a77c37}
+body{margin:0;background:#101010;color:#f7f4ed;font-family:Arial,sans-serif}
+header{padding:26px 20px;background:#191919;border-bottom:1px solid #92713b}
+header h1{margin:0;color:#d9b36b;font-size:30px}
+header p{color:#aaa;margin-bottom:0}
+main{max-width:650px;margin:auto;padding:18px}
+.hero,.card{background:#1d1d1d;border:1px solid #39332a;border-radius:15px;padding:18px;margin-bottom:15px}
+.hero{text-align:center;padding:28px 18px}
+.hero h2{color:#e0bd7c;font-size:25px}
+h2,h3{color:#dfb96f}
+nav{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:18px 0}
+button{background:#292929;color:#f5e5c4;border:1px solid #725b35;border-radius:11px;padding:15px;font-size:15px}
+button:active{background:#725b35}
 section{display:none}
 section.active{display:block}
-.card{background:#1b2430;border:1px solid #354151;border-radius:14px;padding:17px;margin:12px 0}
-input,select{width:100%;padding:13px;margin:8px 0;background:#202a36;color:white;border:1px solid #485466;border-radius:9px}
-label{display:block;margin-top:14px;color:#d9b46b}
-.note{font-size:28px;color:#e2c17f;text-align:center;padding:15px}
-small{color:#aab2bf}
-footer{text-align:center;color:#8893a1;padding:30px}
-audio{width:100%;margin-top:12px}
+select,input{width:100%;padding:13px;margin:9px 0;background:#292929;color:white;border:1px solid #725b35;border-radius:9px}
+label{color:#d9b36b}
+.small{color:#aaa;font-size:13px;line-height:1.5}
+.pistons{display:flex;justify-content:center;gap:18px;margin:25px 0}
+.piston{width:75px;height:110px;border-radius:35px 35px 14px 14px;background:#333;border:2px solid #c29a52;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px}
+.piston strong{font-size:24px;color:#e3bf7d}
+.piston span{font-size:12px}
+.piston.on{background:#a77d37;color:#111}
+.piston.on strong{color:#111}
+.note{font-size:27px;color:#e0bd7c;text-align:center;padding:15px}
+.filebox{background:#292929;padding:15px;border-radius:10px;margin-top:12px}
+footer{text-align:center;padding:25px;color:#999;font-size:12px}
 </style>
 </head>
 <body>
-
 <header>
 <h1>🎺 CCB TUBA</h1>
-<p>Seu espaço de estudos musicais</p>
+<p>Estudo musical para tubistas da CCB</p>
 </header>
-
 <main>
-<div class="card">
-<h2>Bem-vindo, tubista!</h2>
-<p>Estude, pratique e aperfeiçoe sua música.</p>
-<p><small>Instrumento: Tuba em Si bemol (Bb)</small></p>
+<div class="hero">
+<div style="font-size:48px">🎺</div>
+<h2>Bem-vindo ao CCB TUBA</h2>
+<p>Seu espaço de estudo, música e dedicação.</p>
+<p class="small">Tuba Bb • 3 pistões • Clave de fá</p>
 </div>
 
 <nav>
 <button onclick="show('inicio')">🏠 Início</button>
-<button onclick="show('hinos')">🎼 Hinos</button>
+<button onclick="show('hinos')">🎼 Hinário</button>
 <button onclick="show('partituras')">📖 Partituras</button>
 <button onclick="show('notas')">🎵 Notas</button>
-<button onclick="show('digitacao')">🎺 Pistões</button>
+<button onclick="show('pistoes')">🎺 Pistões</button>
 <button onclick="show('audios')">🎧 Áudios</button>
 </nav>
 
 <section id="inicio" class="active">
 <div class="card">
-<h2>CCB TUBA</h2>
-<p>Bem-vindo ao seu aplicativo de estudos de tuba.</p>
-<p>Escolha uma das ferramentas acima para começar.</p>
+<h2>Seu estudo começa aqui</h2>
+<p>Escolha uma ferramenta no menu para estudar.</p>
+</div>
+<div class="card">
+<h3>Configuração musical</h3>
+<p>Tuba em Si bemol (Bb)</p>
+<p>Três pistões superiores</p>
+<p>Clave de fá</p>
 </div>
 </section>
 
 <section id="hinos">
-<h2>Hinário</h2>
-<input id="busca" placeholder="Pesquisar número ou nome..." oninput="buscar()">
-<div id="lista">
-<div class="card">Hinos cadastrados aparecerão aqui.</div>
+<div class="card">
+<h2>Hinário CCB</h2>
+<input id="busca" placeholder="Pesquisar número do hino">
+<p id="buscaResultado" class="small">Área preparada para o cadastro de hinos autorizados.</p>
 </div>
-<small>Os hinos serão adicionados com materiais autorizados.</small>
 </section>
 
 <section id="partituras">
-<h2>Partituras</h2>
 <div class="card">
-<p>Adicione suas partituras em PDF ou imagem.</p>
-<label>Selecionar partitura</label>
-<input type="file" id="arquivo" accept=".pdf,image/*">
-<div id="visual"></div>
+<h2>Partituras</h2>
+<p>Selecione uma partitura em PDF ou imagem no seu iPhone.</p>
+<input type="file" id="pdf" accept=".pdf,image/*">
+<div id="partituraPreview"></div>
 </div>
 </section>
 
 <section id="notas">
-<h2>Notas musicais</h2>
 <div class="card">
-<p>Referência para seus estudos:</p>
+<h2>Notas musicais</h2>
 <div class="note">Dó • Ré • Mi • Fá</div>
 <div class="note">Sol • Lá • Si • Dó</div>
-<p>Estude a escala cromática e pratique sua afinação.</p>
+<p class="small">Estude as notas naturais, sustenidos, bemóis e a escala cromática.</p>
 </div>
 </section>
 
-<section id="digitacao">
-<h2>Digitação dos pistões</h2>
+<section id="pistoes">
 <div class="card">
-<p>Consulte suas digitações de acordo com a afinação, oitava e posição das notas.</p>
-<label>Escolha uma nota</label>
+<h2>Digitação dos pistões</h2>
+<p>Toque nos pistões para visualizar sua posição.</p>
+<div class="pistons">
+<button class="piston" id="p1" onclick="toggle(1)"><strong>1</strong><span>Pistão</span></button>
+<button class="piston" id="p2" onclick="toggle(2)"><strong>2</strong><span>Pistão</span></button>
+<button class="piston" id="p3" onclick="toggle(3)"><strong>3</strong><span>Pistão</span></button>
+</div>
+<p id="status" style="text-align:center;color:#dfb96f">Nenhum pistão acionado</p>
+<label for="nota">Escolha uma nota para estudar</label>
 <select id="nota">
 <option>Dó</option><option>Dó sustenido</option>
-<option>Ré</option><option>Ré sustenido</option>
+<option>Ré bemol</option><option>Ré</option>
+<option>Ré sustenido</option><option>Mi bemol</option>
 <option>Mi</option><option>Fá</option>
-<option>Fá sustenido</option><option>Sol</option>
-<option>Sol sustenido</option><option>Lá</option>
-<option>Lá sustenido</option><option>Si</option>
+<option>Fá sustenido</option><option>Sol bemol</option>
+<option>Sol</option><option>Sol sustenido</option>
+<option>Lá bemol</option><option>Lá</option>
+<option>Lá sustenido</option><option>Si bemol</option>
+<option>Si</option>
 </select>
-<p>Nota escolhida: <strong id="resultado">Dó</strong></p>
-<p><small>As posições dos pistões serão cadastradas conforme a oitava e a escrita musical da sua tuba.</small></p>
+<p class="small">A tabela de digitação correta será cadastrada após confirmar a oitava e a transposição da sua partitura. Por enquanto, use os botões para conhecer os três pistões.</p>
 </div>
 </section>
 
 <section id="audios">
-<h2>Áudios para estudar</h2>
 <div class="card">
-<p>Adicione gravações autorizadas dos hinos.</p>
-<label>Selecionar áudio</label>
-<input type="file" id="audioArquivo" accept="audio/*">
-<div id="player"></div>
+<h2>Áudios para estudar</h2>
+<p>Escolha uma gravação autorizada armazenada no iPhone.</p>
+<input type="file" id="som" accept="audio/*">
+<div id="audioPlayer"></div>
 </div>
 </section>
-
-<footer>
-🎺 CCB TUBA<br>
-<small>Estude com dedicação e amor à música.</small>
-</footer>
+<footer>CCB TUBA • Música e dedicação</footer>
 </main>
-
 <script>
 function show(id){
 document.querySelectorAll('main section').forEach(s=>s.classList.remove('active'));
 document.getElementById(id).classList.add('active');
 window.scrollTo(0,0);
 }
-document.getElementById('nota').addEventListener('change',function(){
-document.getElementById('resultado').textContent=this.value;
-});
-document.getElementById('arquivo').addEventListener('change',function(){
-const f=this.files[0];
-if(!f)return;
+function toggle(n){
+const el=document.getElementById('p'+n);
+el.classList.toggle('on');
+const ativos=[1,2,3].filter(i=>document.getElementById('p'+i).classList.contains('on'));
+document.getElementById('status').textContent=
+ativos.length?'Pistões acionados: '+ativos.join(', '):'Nenhum pistão acionado';
+}
+document.getElementById('pdf').addEventListener('change',function(){
+const f=this.files[0];if(!f)return;
 const url=URL.createObjectURL(f);
-const v=document.getElementById('visual');
-v.innerHTML='';
+const box=document.getElementById('partituraPreview');
+box.innerHTML='';
 if(f.type==='application/pdf'){
 const frame=document.createElement('iframe');
-frame.src=url;
-frame.width='100%';
-frame.height='500';
-v.appendChild(frame);
+frame.src=url;frame.width='100%';frame.height='500';
+box.appendChild(frame);
 }else{
 const img=document.createElement('img');
-img.src=url;
-img.style.width='100%';
-v.appendChild(img);
+img.src=url;img.style.width='100%';box.appendChild(img);
 }
 });
-document.getElementById('audioArquivo').addEventListener('change',function(){
-const f=this.files[0];
-if(!f)return;
-const player=document.getElementById('player');
-player.innerHTML='';
+document.getElementById('som').addEventListener('change',function(){
+const f=this.files[0];if(!f)return;
 const a=document.createElement('audio');
-a.controls=true;
-a.src=URL.createObjectURL(f);
-player.appendChild(a);
+a.controls=true;a.src=URL.createObjectURL(f);a.style.width='100%';
+const box=document.getElementById('audioPlayer');
+box.innerHTML='';box.appendChild(a);
 });
-function buscar(){
-const q=document.getElementById('busca').value.toLowerCase();
-document.getElementById('lista').innerHTML=
-'<div class="card">Ainda não há hinos cadastrados. Os materiais autorizados serão adicionados nesta área.</div>';
-}
+document.getElementById('busca').addEventListener('input',function(){
+document.getElementById('buscaResultado').textContent=
+'Pesquisa: '+this.value+'. Os hinos serão cadastrados nesta área.';
+});
 </script>
 </body>
 </html>
